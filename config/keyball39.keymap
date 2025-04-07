@@ -7,10 +7,11 @@
 #define SNIPE   6
 
 #include <behaviors/mouse_keys.dtsi>
+#include <dt-bindings/zmk/mouse.h>
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
-#include <dt-bindings/zmk/mouse.h>
+#include <dt-bindings/zmk/pointing.h>
 
 &lt {
     tapping-term-ms = <240>;
@@ -55,10 +56,10 @@
         default_layer {
             label = "QWRT";
             bindings = <
-&kp Q      &kp W  &kp E  &kp R  &kp T                               &kp Y            &kp U      &kp I          &kp O          &kp P
-&kp A      &kp S  &kp D  &kp F  &kp G                               &kp H            &kp J      &kp K          &kp L          &kp SEMI
-&kp Z      &kp X  &kp C  &kp V  &kp B                               &kp N            &kp M      &kp COMMA      &kp DOT        &kp SLASH
-&kp LCTRL                       &kp LGUI  &lt 1 SPACE  &lt 5 ENTER  &lt 2 BACKSPACE  &lt 4 TAB  &kp RIGHT_ALT  &kp RIGHT_WIN  &kp RSHFT
+&kp Q           &kp W  &kp E  &kp R  &kp T                               &kp Y            &kp U      &kp I          &kp O          &kp P
+&kp A           &kp S  &kp D  &kp F  &kp G                               &kp H            &kp J      &kp K          &kp L          &kp SEMI
+&kp Z           &kp X  &kp C  &kp V  &kp B                               &kp N            &kp M      &kp COMMA      &kp DOT        &kp SLASH
+&kp LEFT_SHIFT                       &kp LGUI  &lt 4 SPACE  &lt 5 ENTER  &lt 2 BACKSPACE  &lt 6 TAB  &kp RIGHT_ALT  &kp RIGHT_WIN  &kp RCTRL
             >;
         };
 
