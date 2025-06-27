@@ -71,6 +71,16 @@
             bindings = <&kp EQUAL>;
             key-positions = <17 18>;
         };
+
+        gamemod {
+            bindings = <&sl 7>;
+            key-positions = <0 30 33>;
+        };
+
+        normod {
+            bindings = <&sl 0>;
+            key-positions = <35 0 4 2>;
+        };
     };
 
     keymap {
@@ -143,6 +153,24 @@
 &trans  &trans  &trans  &trans  &trans                       &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans                       &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans       &trans  &trans  &trans                          &trans
+            >;
+        };
+
+        Game {
+            bindings = <
+&kp ESC         &kp Q     &kp W     &kp E        &kp R                      &trans  &trans  &trans  &trans  &trans
+&kp TAB         &kp A     &kp S     &kp D        &kp F                      &trans  &trans  &trans  &trans  &trans
+&kp LCTRL       &kp Z     &kp X     &kp C        &kp V                      &trans  &trans  &trans  &trans  &trans
+&kp LEFT_SHIFT  &kp LALT  &kp BSPC  &lt 8 SPACE  &kp SPACE  &kp F8  &trans  &trans                          &trans
+            >;
+        };
+
+        NumGame {
+            bindings = <
+&kp ESC    &kp N1    &kp N2    &kp N3  &kp F1                  &trans  &trans  &trans  &trans  &trans
+&kp TAB    &kp N4    &kp N5    &kp N6  &kp F2                  &trans  &trans  &trans  &trans  &trans
+&kp LCTRL  &kp N7    &kp N8    &kp N9  &kp F3                  &trans  &trans  &trans  &trans  &trans
+&kp LSHFT  &kp LALT  &kp BSPC  &trans  &trans  &trans  &trans  &trans                          &trans
             >;
         };
     };
