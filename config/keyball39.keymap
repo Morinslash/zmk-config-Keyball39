@@ -73,12 +73,12 @@
         };
 
         gamemod {
-            bindings = <&sl 7>;
+            bindings = <&tog 7>;
             key-positions = <0 30 33>;
         };
 
         normod {
-            bindings = <&sl 0>;
+            bindings = <&tog 0>;
             key-positions = <35 0 4 2>;
         };
     };
@@ -163,6 +163,8 @@
 &kp LCTRL       &kp Z     &kp X     &kp C        &kp V                      &trans  &trans  &trans  &trans  &trans
 &kp LEFT_SHIFT  &kp LALT  &kp BSPC  &lt 8 SPACE  &kp SPACE  &kp F8  &trans  &trans                          &trans
             >;
+
+            label = "Game";
         };
 
         NumGame {
@@ -172,6 +174,8 @@
 &kp LCTRL  &kp N7    &kp N8    &kp N9  &kp F3                  &trans  &trans  &trans  &trans  &trans
 &kp LSHFT  &kp LALT  &kp BSPC  &trans  &trans  &trans  &trans  &trans                          &trans
             >;
+
+            label = "NGame";
         };
     };
 };
