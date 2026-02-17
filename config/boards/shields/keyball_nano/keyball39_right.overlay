@@ -60,13 +60,17 @@
 };
 
 / {
-  trackball_listener {
+    input_processors {
+        zip_temp_layer: zip_temp_layer {
+            compatible = "zmk,input-processor-temp-layer";
+            require-prior-idle-ms = <1000>;  // 2s idle before activate
+        };
+    };
+  trackball_listener: trackball_listener {
     compatible = "zmk,input-listener";
     device = <&trackball>;
         input-processors = <
-        &zip_temp_layer 4 1000   // Auto‑mouse layer 4, 2s timeout
-        &zip_temp_layer 5 2000   // Scroll layer 5
-        &zip_temp_layer 6 2000   // Snipe layer 6
+        &zip_temp_layer 4 
     >;
   };
 };
