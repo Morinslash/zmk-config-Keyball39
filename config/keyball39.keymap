@@ -7,7 +7,6 @@
 #define SNIPE   6
 
 #include <behaviors/mouse_keys.dtsi>
-#include <behaviors/input-listener.dtsi>
 #include <dt-bindings/zmk/mouse.h>
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
