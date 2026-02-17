@@ -56,9 +56,6 @@
         motion-gpios = <&gpio1 11 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;  // added for new binding
         zephyr,axis-x = <0>;
         zephyr,axis-y = <1>;
-        automouse-layer = <4>;
-	scroll-layers = <5>;
-	snipe-layers = <6>;
     };
 };
 
@@ -66,6 +63,10 @@
   trackball_listener {
     compatible = "zmk,input-listener";
     device = <&trackball>;
-
+        input-processors = <
+        &zip_temp_layer 4 1000   // Auto‑mouse layer 4, 2s timeout
+        &zip_temp_layer 5 2000   // Scroll layer 5
+        &zip_temp_layer 6 2000   // Snipe layer 6
+    >;
   };
 };
