@@ -26,14 +26,13 @@
 &caps_word { continue-list = <UNDERSCORE MINUS>; };
 
 / {
-    // custom shift using mod-morph 
+    // custom shift using mod-morph
 
     behaviors {
         cmqus: comma_question {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&kp COMMA>, <&kp QUESTION>;
-
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
@@ -41,7 +40,6 @@
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&kp DOT>, <&kp SEMI>;
-
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
     };
@@ -82,7 +80,7 @@
         compatible = "zmk,keymap";
 
         default_layer {
-            label = "QWRT";
+            display-name = "QWRT";
             bindings = <
 &kp Q           &kp W      &kp E         &kp R      &kp T                                  &kp Y      &kp U  &kp I      &kp O    &kp P
 &kp A           &kp S      &kp D         &kp F      &kp G                                  &kp H      &kp J  &kp K      &kp L    &kp SQT
@@ -92,7 +90,7 @@
         };
 
         number_layer {
-            label = "NUM";
+            display-name = "NUM";
             bindings = <
 &kp NUMBER_1          &kp NUMBER_2           &kp NUMBER_3      &kp NUMBER_4       &kp NUMBER_5                   &kp NUMBER_6  &kp NUMBER_7    &kp NUMBER_8  &kp NUMBER_9  &kp NUMBER_0
 &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp BACKSLASH                  &kp LEFT      &kp DOWN_ARROW  &kp UP_ARROW  &kp RIGHT     &kp SEMI
@@ -102,7 +100,7 @@
         };
 
         symbol_layer {
-            label = "SYM";
+            display-name = "SYM";
             bindings = <
 &kp EXCLAMATION  &kp AT_SIGN   &kp HASH      &kp DOLLAR    &kp PERCENT                  &kp CARET       &kp AMPERSAND  &kp ASTERISK      &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS
 &bt BT_CLR       &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &trans                       &kp MINUS       &kp EQUAL      &kp LEFT_BRACKET  &kp RIGHT_BRACKET     &kp SQT
@@ -112,7 +110,7 @@
         };
 
         function_layer {
-            label = "FUN";
+            display-name = "FUN";
             bindings = <
 &kp F1  &kp F2   &kp F3   &kp F4   &kp C_PLAY_PAUSE                   &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4
 &kp F5  &kp F6   &kp F7   &kp F8   &kp C_VOLUME_UP                    &bt BT_CLR    &none         &none         &none         &none
@@ -122,7 +120,7 @@
         };
 
         mouse_layer {
-            label = "MOUSE";
+            display-name = "MOUSE";
             bindings = <
 &none   &none   &none   &none   &none                   &none          &none      &none           &none      &none
 &trans  &trans  &trans  &trans  &none                   &kp PAGE_UP    &mkp LCLK  &msc SCRL_UP    &mkp RCLK  &mkp MCLK
@@ -132,7 +130,7 @@
         };
 
         scroll_layer {
-            label = "SCROLL";
+            display-name = "SCROLL";
             bindings = <
 &trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans
@@ -142,7 +140,7 @@
         };
 
         snipe_layer {
-            label = "SNIPE";
+            display-name = "SNIPE";
             bindings = <
 &trans  &trans  &trans  &trans  &bootloader                  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans                       &trans  &trans  &trans  &trans  &trans
@@ -152,25 +150,23 @@
         };
 
         Game {
+            display-name = "Game";
             bindings = <
 &kp ESC         &kp Q     &kp W     &kp E        &kp R                      &trans  &trans  &trans  &trans  &trans
 &kp TAB         &kp A     &kp S     &kp D        &kp F                      &trans  &trans  &trans  &trans  &trans
 &kp LCTRL       &kp Z     &kp X     &kp C        &kp V                      &trans  &trans  &trans  &trans  &trans
 &kp LEFT_SHIFT  &kp LALT  &kp BSPC  &lt 8 SPACE  &kp SPACE  &kp F8  &trans  &trans                          &trans
             >;
-
-            label = "Game";
         };
 
         NumGame {
+            display-name = "NGame";
             bindings = <
 &kp ESC    &kp N1    &kp N2    &kp N3  &kp F1                  &trans  &trans  &trans  &trans  &trans
 &kp TAB    &kp N4    &kp N5    &kp N6  &kp F2                  &trans  &trans  &trans  &trans  &trans
 &kp LCTRL  &kp N7    &kp N8    &kp N9  &kp F3                  &trans  &trans  &trans  &trans  &trans
 &kp LSHFT  &kp LALT  &kp BSPC  &trans  &trans  &trans  &trans  &trans                          &trans
             >;
-
-            label = "NGame";
         };
     };
 };
