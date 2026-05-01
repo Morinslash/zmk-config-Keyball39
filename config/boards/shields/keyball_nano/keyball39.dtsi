@@ -71,7 +71,6 @@
 	
     kscan0: kscan {
         compatible = "zmk,kscan-gpio-matrix";
-        label = "KSCAN";
 
         diode-direction = "col2row";
 		row-gpios
@@ -81,7 +80,7 @@
 			, <&pro_micro 18 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
             ;
     };
-};    
+};
 
 &pinctrl {
     i2c0_default: i2c0_default {
