@@ -57,7 +57,7 @@
 
         zephyr,axis-x = <INPUT_REL_Y>;
         zephyr,axis-y = <INPUT_REL_X>;
-        /* no invert-x, no invert-y */
+        invert-y;
 
         res-cpi = <400>;
         smart-mode;
@@ -78,7 +78,7 @@
         compatible = "zmk,input-listener";
         device = <&trackball>;
         input-processors = <
-            &zip_temp_layer 4 700
+            &zip_temp_layer 4 630
         >;
     };
 };
