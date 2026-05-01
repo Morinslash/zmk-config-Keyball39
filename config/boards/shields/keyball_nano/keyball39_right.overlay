@@ -57,8 +57,7 @@
 
         zephyr,axis-x = <INPUT_REL_Y>;
         zephyr,axis-y = <INPUT_REL_X>;
-        /* invert-x removed: flips left/right direction */
-        invert-y;
+        /* no invert-x, no invert-y */
 
         res-cpi = <400>;
         smart-mode;
