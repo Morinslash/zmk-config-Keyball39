@@ -61,12 +61,23 @@
 
         res-cpi = <400>;
         smart-mode;
-        force-awake;
+        /* force-awake removed: was causing continuous sensor polling noise
+           which triggered phantom mouse layer activations. smart-mode handles sleep. */
     };
 };
 
 / {
     input_processors {
+        zip_xy_scaler: zip_xy_scaler {
+            compatible = "zmk,input-processor-scaler";
+            #input-processor-cells = <2>;
+            type = <INPUT_EV_REL>;
+            codes = <INPUT_REL_X INPUT_REL_Y>;
+            track-remainders;
+            multiplier = <1>;
+            divisor = <3>;
+        };
+
         zip_temp_layer: zip_temp_layer {
             compatible = "zmk,input-processor-temp-layer";
             #input-processor-cells = <2>;
@@ -80,6 +91,8 @@
         compatible = "zmk,input-listener";
         device = <&trackball>;
         input-processors = <
+            &zip_xy_scaler INPUT_EV_REL INPUT_REL_X
+            &zip_xy_scaler INPUT_EV_REL INPUT_REL_Y
             &zip_temp_layer 4 630
         >;
     };
