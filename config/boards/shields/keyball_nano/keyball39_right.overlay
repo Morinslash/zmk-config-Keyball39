@@ -59,10 +59,10 @@
         zephyr,axis-y = <INPUT_REL_X>;
         invert-x;
 
-        /* 1200 CPI: raised from 400 to compensate for the 1/3 scaler below.
-           Net effective sensitivity ~400 CPI, but noise deltas (1-2) get
-           truncated to 0 by integer division, suppressing phantom layer triggers. */
-        res-cpi = <1200>;
+        /* 800 CPI with 1/2 scaler = ~400 CPI effective.
+           Less aggressive than 1/3 - delta-1 noise still truncated to 0
+           but small real movements (delta 2+) pass through correctly. */
+        res-cpi = <800>;
         smart-mode;
         /* force-awake removed: was causing continuous sensor polling noise
            which triggered phantom mouse layer activations. smart-mode handles sleep. */
@@ -90,11 +90,10 @@
     trackball_listener: trackball_listener {
         compatible = "zmk,input-listener";
         device = <&trackball>;
-        /* zip_xy_scaler param1=multiplier param2=divisor: scale movement by 1/3
-           to absorb tiny delta-1 noise reports from the PMW3610 before they
-           can trigger the temp mouse layer. */
+        /* zip_xy_scaler 1/2: less aggressive than 1/3, delta-1 noise still
+           truncated to 0 but small intentional movements (delta 2+) pass through. */
         input-processors = <
-            &zip_xy_scaler 1 3
+            &zip_xy_scaler 1 2
             &zip_temp_layer 4 630
         >;
     };
