@@ -59,7 +59,10 @@
         zephyr,axis-y = <INPUT_REL_X>;
         invert-x;
 
-        res-cpi = <400>;
+        /* 1200 CPI: raised from 400 to compensate for the 1/3 scaler below.
+           Net effective sensitivity ~400 CPI, but noise deltas (1-2) get
+           truncated to 0 by integer division, suppressing phantom layer triggers. */
+        res-cpi = <1200>;
         smart-mode;
         /* force-awake removed: was causing continuous sensor polling noise
            which triggered phantom mouse layer activations. smart-mode handles sleep. */
