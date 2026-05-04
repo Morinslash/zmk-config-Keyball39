@@ -73,9 +73,6 @@
             #input-processor-cells = <2>;
             type = <INPUT_EV_REL>;
             codes = <INPUT_REL_X INPUT_REL_Y>;
-            track-remainders;
-            multiplier = <1>;
-            divisor = <3>;
         };
 
         zip_temp_layer: zip_temp_layer {
@@ -90,9 +87,11 @@
     trackball_listener: trackball_listener {
         compatible = "zmk,input-listener";
         device = <&trackball>;
+        /* zip_xy_scaler param1=multiplier param2=divisor: scale movement by 1/3
+           to absorb tiny delta-1 noise reports from the PMW3610 before they
+           can trigger the temp mouse layer. */
         input-processors = <
-            &zip_xy_scaler INPUT_EV_REL INPUT_REL_X
-            &zip_xy_scaler INPUT_EV_REL INPUT_REL_Y
+            &zip_xy_scaler 1 3
             &zip_temp_layer 4 630
         >;
     };
