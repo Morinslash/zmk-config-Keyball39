@@ -369,3 +369,5 @@ combos:
   k: {t: Game, h: toggle}
 - p: [35, 0, 4, 2]
   k: {t: QWRT, h: toggle}
+- p: [8, 9]
+  k: Gui+Sft+S
