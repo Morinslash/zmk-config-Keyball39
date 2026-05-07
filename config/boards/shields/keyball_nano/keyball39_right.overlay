@@ -59,13 +59,12 @@
         zephyr,axis-y = <INPUT_REL_X>;
         invert-x;
 
-        /* 400 CPI: reduces raw delta-1 noise event frequency from sensor.
-           Combined with 1/2 scaler = smooth ~200 CPI effective cursor feel.
-           Increase back to 800 if cursor feels too slow for your preference. */
-        res-cpi = <400>;
+        /* 1600 CPI with 1/2 scaler = ~800 CPI effective cursor speed.
+           Restores usable speed while keeping delta-1 noise truncation:
+           sensor noise (delta 1) / 2 = 0 (truncated), no cursor movement.
+           Real movement (delta 2+) / 2 = 1+ passes through correctly. */
+        res-cpi = <1600>;
         smart-mode;
-        /* force-awake removed: was causing continuous sensor polling noise
-           which triggered phantom mouse layer activations. smart-mode handles sleep. */
     };
 };
 
@@ -81,8 +80,8 @@
         zip_temp_layer: zip_temp_layer {
             compatible = "zmk,input-processor-temp-layer";
             #input-processor-cells = <2>;
-            /* 800ms idle after last keypress before trackball can activate mouse layer.
-               Increased from 500ms for stronger typing vibration protection. */
+            /* 800ms idle after last keypress before trackball can activate
+               mouse layer. Prevents typing vibration from triggering it. */
             require-prior-idle-ms = <800>;
         };
     };
@@ -90,8 +89,7 @@
     trackball_listener: trackball_listener {
         compatible = "zmk,input-listener";
         device = <&trackball>;
-        /* Base: scale only — no temp-layer at top level to prevent noise
-           events from triggering layer activation before scaler discards them. */
+        /* Base: scale only - no temp-layer at top level */
         input-processors = <&zip_xy_scaler 1 2>;
 
         /* Only activate mouse layer when coming from a non-mouse layer */
