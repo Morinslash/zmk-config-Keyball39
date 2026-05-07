@@ -60,8 +60,8 @@
         invert-x;
 
         /* 1600 CPI with 1/2 scaler = ~800 CPI effective cursor speed.
-           Restores usable speed while keeping delta-1 noise truncation:
-           sensor noise (delta 1) / 2 = 0 (truncated), no cursor movement.
+           Noise filtering: sensor delta-1 / 2 = 0 (integer truncated),
+           so resting noise never moves the cursor or triggers layer switch.
            Real movement (delta 2+) / 2 = 1+ passes through correctly. */
         res-cpi = <1600>;
         smart-mode;
@@ -81,7 +81,8 @@
             compatible = "zmk,input-processor-temp-layer";
             #input-processor-cells = <2>;
             /* 800ms idle after last keypress before trackball can activate
-               mouse layer. Prevents typing vibration from triggering it. */
+               mouse layer. Increased from 500ms: stronger typing vibration
+               protection without noticeable delay in normal mouse usage. */
             require-prior-idle-ms = <800>;
         };
     };
@@ -89,23 +90,9 @@
     trackball_listener: trackball_listener {
         compatible = "zmk,input-listener";
         device = <&trackball>;
-        /* Base: scale only - no temp-layer at top level */
-        input-processors = <&zip_xy_scaler 1 2>;
-
-        /* Only activate mouse layer when coming from a non-mouse layer */
-        mouse_activate {
-            layers = <0 1 2 3>;
-            input-processors = <
-                &zip_xy_scaler 1 2
-                &zip_temp_layer 4 630
-            >;
-            process-next;
-        };
-
-        /* When already in mouse layer, just pass through scaled movement */
-        mouse_passthrough {
-            layers = <4>;
-            input-processors = <&zip_xy_scaler 1 2>;
-        };
+        input-processors = <
+            &zip_xy_scaler 1 2
+            &zip_temp_layer 4 630
+        >;
     };
 };
