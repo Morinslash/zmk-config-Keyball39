@@ -76,6 +76,11 @@
             bindings = <&tog 0>;
             key-positions = <35 0 4 2>;
         };
+
+        screenshot {
+            bindings = <&kp RG(RS(S))>;
+            key-positions = <8 9>;
+        };
     };
 
     keymap {
