@@ -63,7 +63,7 @@
            Noise filtering: sensor delta-1 / 2 = 0 (integer truncated),
            so resting noise never moves the cursor or triggers layer switch.
            Real movement (delta 2+) / 2 = 1+ passes through correctly. */
-        res-cpi = <1600>;
+        res-cpi = <1200>;
         smart-mode;
     };
 };
