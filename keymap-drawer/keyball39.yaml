@@ -39,7 +39,7 @@ layers:
   - {t: '$$mdi:keyboard-esc$$', h: FUN}
   - {t: '$$mdi:backspace$$', h: NUM}
   - {t: '$$mdi:keyboard-return$$', type: enter}
-  - $$mdi:apple-keyboard-shift$$
+  - Sft+Gui+S
   NUM:
   - '1'
   - '2'
@@ -369,5 +369,3 @@ combos:
   k: {t: Game, h: toggle}
 - p: [35, 0, 4, 2]
   k: {t: QWRT, h: toggle}
-- p: [8, 9]
-  k: Gui+Sft+S
