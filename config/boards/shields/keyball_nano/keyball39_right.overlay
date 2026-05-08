@@ -77,14 +77,16 @@
             codes = <INPUT_REL_X INPUT_REL_Y>;
         };
 
+        /* AUTO MOUSE LAYER DISABLED - workaround for worn trackball socket
+           causing phantom layer triggers from ball microvibration.
+           Re-enable once socket is reprinted. Use <lt 4 TAB> to switch
+           to mouse layer manually for clicks in the meantime.
         zip_temp_layer: zip_temp_layer {
             compatible = "zmk,input-processor-temp-layer";
             #input-processor-cells = <2>;
-            /* 800ms idle after last keypress before trackball can activate
-               mouse layer. Increased from 500ms: stronger typing vibration
-               protection without noticeable delay in normal mouse usage. */
             require-prior-idle-ms = <800>;
         };
+        */
     };
 
     trackball_listener: trackball_listener {
@@ -92,7 +94,7 @@
         device = <&trackball>;
         input-processors = <
             &zip_xy_scaler 1 2
-            &zip_temp_layer 4 630
+            /* &zip_temp_layer 4 630 -- disabled, see above */
         >;
     };
 };
