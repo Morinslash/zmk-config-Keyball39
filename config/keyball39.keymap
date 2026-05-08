@@ -76,11 +76,6 @@
             bindings = <&tog 0>;
             key-positions = <35 0 4 2>;
         };
-
-        screenshot {
-            bindings = <&kp RG(RS(S))>;
-            key-positions = <8 9>;
-        };
     };
 
     keymap {
@@ -89,10 +84,10 @@
         default_layer {
             display-name = "QWRT";
             bindings = <
-&kp Q           &kp W   &kp E         &kp R      &kp T                                  &kp Y      &kp U  &kp I      &kp O    &kp P
-&kp A           &kp S   &kp D         &kp F      &kp G                                  &kp H      &kp J  &kp K      &kp L    &kp SQT
-&kp Z           &mt LEFT_SHIFT X  &mt LCTRL C  &mt LEFT_ALT V  &kp B                   &kp N      &mt RIGHT_ALT M  &mt RCTRL COMMA  &mt RSHIFT DOT  &mt LEFT_WIN SLASH
-&kp LEFT_SHIFT  &kp LCTRL         &kp LEFT_ALT  &lt 4 TAB       &kp SPACE  &lt 3 ESC  &lt 1 BACKSPACE  &kp ENTER                                    &kp RSHFT
+&kp Q           &kp W             &kp E         &kp R           &kp T                                  &kp Y      &kp U            &kp I            &kp O           &kp P
+&kp A           &kp S             &kp D         &kp F           &kp G                                  &kp H      &kp J            &kp K            &kp L           &kp SQT
+&kp Z           &mt LEFT_SHIFT X  &mt LCTRL C   &mt LEFT_ALT V  &kp B                                  &kp N      &mt RIGHT_ALT M  &mt RCTRL COMMA  &mt RSHIFT DOT  &mt LEFT_WIN SLASH
+&kp LEFT_SHIFT  &kp LCTRL         &kp LEFT_ALT  &lt 4 TAB       &kp SPACE  &lt 3 ESC  &lt 1 BACKSPACE  &kp ENTER                                                    &kp LS(LG(S))
             >;
         };
 
